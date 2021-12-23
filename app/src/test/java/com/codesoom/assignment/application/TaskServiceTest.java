@@ -141,21 +141,21 @@ class TaskServiceTest {
     @Nested
     @DisplayName("updateTask 메소드는")
     class Describe_updateTask {
-        Task givenTask;
-        Task givenSource;
-        Long givenId() {
-            return givenTask.getId();
-        }
-
-        @BeforeEach
-        void prepare() {
-            givenTask = taskService.createTask(getTask());
-            givenSource = getTaskWithPostfix();
-        }
-
         @Nested
         @DisplayName("등록된 Task의 id 와 수정할 Task 가 주어진다면")
         class Context_with_id_and_task {
+            Task givenTask;
+            Task givenSource;
+            Long givenId() {
+                return givenTask.getId();
+            }
+
+            @BeforeEach
+            void prepare() {
+                givenTask = taskService.createTask(getTask());
+                givenSource = getTaskWithPostfix();
+            }
+
             @Test
             @DisplayName("해당 id의 Task를 수정하고, 리턴한다.")
             void it_update_task_return_task() {
